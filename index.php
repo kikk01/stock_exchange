@@ -25,13 +25,13 @@
             </p>" : 
             '';
 
-        echo  nl2br("day " . $i . ": " . $placement  .  "\n");
+        echo  nl2br("day " . $i . ": " . round($placement, 2, PHP_ROUND_HALF_DOWN)  .  "\n");
         $i++;
     }
 
     echo '<p style="color:red;font-weight:bold">
         ####################### Congratulation, you have ' . 
-        $placement . 
+        round($placement, 2, PHP_ROUND_HALF_DOWN) . 
         " after " 
         . $numberYear . 
         ' years ####################
@@ -53,7 +53,7 @@
     {
         global $placement, $costSupports;
         $placement = $costSupports['costType'] === 0 ? 
-            $placement - round($placement*$costSupports['costAmount']/100, 2, PHP_ROUND_HALF_DOWN) :
+            $placement - $placement*$costSupports['costAmount']/100 :
             $placement - $costSupports['costAmount']
         ;
     }
@@ -61,7 +61,7 @@
     function calculGain(): void
     {
         global $placement, $rate;
-        $placement = round($placement + ($placement*$rate/100), 2, PHP_ROUND_HALF_DOWN);
+        $placement = $placement + ($placement*$rate/100);
     }
 
 ?>
