@@ -13,7 +13,6 @@
     $numberYear = (int) isset($_GET['year']) ? $_GET['year'] : 1;
     $numberDay = 254*$numberYear;
     $i = 0;
-
     while($i < $numberDay) {
         $costSupports = getCostSupport();
         calculPlacementAfterOrderCost();
@@ -26,14 +25,14 @@
             </p>" : 
             '';
 
-        echo  nl2br("jour " . $i . ": " . $placement  .  "\n");
+        echo  nl2br("day " . $i . ": " . $placement  .  "\n");
         $i++;
     }
 
     echo '<p style="color:red;font-weight:bold">
-        ####################### Congratulation, you win ' . 
+        ####################### Congratulation, you have ' . 
         $placement . 
-        " in " 
+        " after " 
         . $numberYear . 
         ' years ####################
     </p>';
